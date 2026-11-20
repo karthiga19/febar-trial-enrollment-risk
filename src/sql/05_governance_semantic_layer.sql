@@ -135,3 +135,14 @@ $$;
 
 -- ── 5. Who can use what (consumers get views + model, never raw sponsor tables) ──────────────────
 -- (the app service principal is granted in tools/grant_app_sp.sql once the app exists)
+
+-- ── 6. Consumer grants: re-applied every run because CREATE OR REPLACE VIEW drops existing grants ──
+-- App service principal (febar-trial-risk). Views + metric view only, never the underlying tables.
+GRANT SELECT  ON TABLE v_portfolio_worklist  TO `9b18c2bd-5881-454c-9bca-2635a0bef106`;
+GRANT SELECT  ON TABLE v_enrollment_weekly   TO `9b18c2bd-5881-454c-9bca-2635a0bef106`;
+GRANT SELECT  ON TABLE v_study_interventions TO `9b18c2bd-5881-454c-9bca-2635a0bef106`;
+GRANT SELECT  ON TABLE v_trial_landscape     TO `9b18c2bd-5881-454c-9bca-2635a0bef106`;
+GRANT SELECT  ON TABLE mv_portfolio_kpis     TO `9b18c2bd-5881-454c-9bca-2635a0bef106`;
+GRANT SELECT  ON TABLE value_assumptions     TO `9b18c2bd-5881-454c-9bca-2635a0bef106`;
+GRANT EXECUTE ON FUNCTION has_ta_access       TO `9b18c2bd-5881-454c-9bca-2635a0bef106`;
+GRANT EXECUTE ON FUNCTION can_view_financials TO `9b18c2bd-5881-454c-9bca-2635a0bef106`;

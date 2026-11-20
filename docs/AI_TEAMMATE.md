@@ -41,6 +41,7 @@ These enforced a few things: confirm the profile before touching the workspace; 
 | `n_sites` was the #1 model feature | Leakage: CT.gov drops never-activated sites from terminated trials | Removed from the champion; kept as a logged `leakage_check` run (AUC 0.709 vs 0.675) |
 | LLM recommended "protocol amendment" for a low-design-risk study | LLMs don't reliably follow decision rules | Deterministic playbook in SQL decides; the LLM explains |
 | Genie route returned `Invalid scope` | AppKit Genie plugin runs on-behalf-of the user | Added `user_api_scopes: [dashboards.genie]`, so user-level governance applies to Genie |
+| App KPI tiles: "query execution failed" (reported by the SA after the final runs) | `CREATE OR REPLACE VIEW` in the governance task drops existing grants, so the app SP lost SELECT on every re-run | Grants moved into `05_governance_semantic_layer.sql` so each run re-applies them; verified with SHOW GRANTS after a fresh run |
 | Portfolio "enrollment vs plan" tile said 105% | Over-enrolling studies masked the laggards | Replaced with "studies behind plan" (honest-scale rule from the app-design skill) |
 
 ## Where human judgement mattered

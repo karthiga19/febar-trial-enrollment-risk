@@ -1,0 +1,30 @@
+bundle:
+  name: febar-trial-enrollment-risk
+
+variables:
+  catalog:
+    default: km_catalog
+  schema:
+    default: febar_trials
+  warehouse_id:
+    default: 734ae882913255c9
+  worklist_sync_pipeline_id:
+    description: Managed pipeline behind the Lakebase synced table km_catalog.febar_trials.trial_risk_worklist_synced (created by tools/setup_lakebase.sh)
+    default: e3b8a95f-9ff7-4416-98fe-85c6934143f2
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://fevm-serverless-stable-35goml.cloud.databricks.com
+      root_path: /Workspace/Users/${workspace.current_user.userName}/febar-trial-enrollment-risk
+
+sync:
+  exclude:
+    - data/**
+    - .venv/**
+    - app/**

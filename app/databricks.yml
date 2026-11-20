@@ -1,0 +1,55 @@
+bundle:
+  name: febar-trial-risk
+
+variables:
+  sql_warehouse_id:
+    description: SQL Warehouse ID
+  genie_space_id:
+    description: Genie Agent (space) ID for the Meridian Trial Enrollment Risk Agent (created by tools/build_genie_agent.py)
+  postgres_branch:
+    description: Full Lakebase Postgres branch resource name. Obtain by running `databricks postgres list-branches {project-name}`, select the desired item from the output array and use its .name value. Requires the project resource name.
+  postgres_database:
+    description: Full Lakebase Postgres database resource name. Obtain by running `databricks postgres list-databases {branch-name}`, select the desired item from the output array and use its .name value. Requires the branch resource name.
+
+resources:
+  apps:
+    app:
+      name: "febar-trial-risk"
+      description: "Trial Enrollment Risk Cockpit - Meridian Therapeutics"
+      source_code_path: ./
+
+      # Start the app automatically on deploy.
+      lifecycle:
+        started: true
+      # Genie runs on-behalf-of the signed-in user -> their own UC row/column security applies
+      user_api_scopes:
+        - dashboards.genie
+
+      # The resources which this app has access to.
+      resources:
+        - name: sql-warehouse
+          sql_warehouse:
+            id: ${var.sql_warehouse_id}
+            permission: CAN_USE
+        - name: genie-space
+          genie_space:
+            name: Meridian Trial Enrollment Risk Agent
+            space_id: ${var.genie_space_id}
+            permission: CAN_RUN
+        - name: postgres
+          postgres:
+            branch: ${var.postgres_branch}
+            database: ${var.postgres_database}
+            permission: CAN_CONNECT_AND_CREATE
+
+targets:
+  default:
+    default: true
+    workspace:
+      host: https://fevm-serverless-stable-35goml.cloud.databricks.com
+
+    variables:
+      sql_warehouse_id: 734ae882913255c9
+      genie_space_id: 01f1e521658514a18b82a983c6fc8ec4
+      postgres_branch: projects/febar-trials/branches/production
+      postgres_database: projects/febar-trials/branches/production/databases/databricks-postgres

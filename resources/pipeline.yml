@@ -1,0 +1,14 @@
+resources:
+  pipelines:
+    trials_pipeline:
+      name: febar-trials-lakeflow-pipeline
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      photon: true
+      channel: CURRENT
+      libraries:
+        - glob:
+            include: ../src/pipeline/**
+      configuration:
+        landing_root: /Volumes/${var.catalog}/${var.schema}/raw

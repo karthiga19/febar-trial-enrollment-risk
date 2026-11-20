@@ -1,0 +1,11 @@
+command: ['npm', 'run', 'start']
+env:
+  - name: DATABRICKS_WAREHOUSE_ID
+    valueFrom: sql-warehouse
+  - name: DATABRICKS_GENIE_SPACE_ID
+    valueFrom: genie-space
+  - name: LAKEBASE_ENDPOINT
+    valueFrom: postgres
+  # Postgres location of the Lakebase synced table (UC km_catalog.febar_trials.trial_risk_worklist -> Postgres)
+  - name: WORKLIST_TABLE
+    value: febar_trials.trial_risk_worklist_synced

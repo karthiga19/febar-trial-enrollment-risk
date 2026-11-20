@@ -1,0 +1,58 @@
+resources:
+  jobs:
+    trials_e2e_job:
+      name: febar-trials-end-to-end
+      description: >
+        Raw ClinicalTrials.gov + sponsor CTMS/EDC files -> Lakeflow pipeline (bronze/silver/gold) ->
+        GenAI enrichment (ai_query) -> ML training (UC model) -> portfolio scoring + GenAI briefs -> Lakebase sync.
+      trigger:
+        pause_status: UNPAUSED
+        file_arrival:
+          url: /Volumes/${var.catalog}/${var.schema}/raw/meridian/enrollment/
+          min_time_between_triggers_seconds: 60
+      max_concurrent_runs: 1
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}
+        - name: retrain
+          default: "true"
+        - name: negative_sample_pct
+          default: "20"
+      tasks:
+        - task_key: lakeflow_ingest_transform
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.trials_pipeline.id}
+        - task_key: genai_enrichment
+          depends_on: [{task_key: lakeflow_ingest_transform}]
+          notebook_task:
+            notebook_path: ../src/notebooks/02_genai_enrichment.py
+        - task_key: retrain_gate
+          depends_on: [{task_key: genai_enrichment}]
+          condition_task:
+            op: EQUAL_TO
+            left: "{{job.parameters.retrain}}"
+            right: "true"
+        - task_key: train_model
+          depends_on: [{task_key: retrain_gate, outcome: "true"}]
+          notebook_task:
+            notebook_path: ../src/notebooks/03_train_accrual_risk_model.py
+        - task_key: score_portfolio
+          depends_on:
+            - task_key: train_model
+            - task_key: retrain_gate
+              outcome: "false"
+          run_if: AT_LEAST_ONE_SUCCESS
+          notebook_task:
+            notebook_path: ../src/notebooks/04_score_portfolio.py
+        - task_key: governance_semantic_layer
+          depends_on: [{task_key: score_portfolio}]
+          sql_task:
+            warehouse_id: ${var.warehouse_id}
+            file:
+              path: ../src/sql/05_governance_semantic_layer.sql
+        - task_key: sync_worklist_to_lakebase
+          depends_on: [{task_key: governance_semantic_layer}]
+          pipeline_task:
+            pipeline_id: ${var.worklist_sync_pipeline_id}

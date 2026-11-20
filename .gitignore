@@ -1,0 +1,12 @@
+data/
+.venv/
+.databricks/
+**/node_modules/
+**/dist/
+app/client/dist/
+app/.env
+app/.databricks/
+__pycache__/
+*.pyc
+.DS_Store
+deck/deck.html

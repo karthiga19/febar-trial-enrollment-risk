@@ -1,0 +1,25 @@
+study_code,source_nct_id,study_title,therapeutic_area,phase,indication,study_manager,target_enrollment,planned_sites,planned_fpi_date,planned_lpi_date,planned_rate_pts_site_month
+MRD-CVM-301,NCT06424288,Phase 3 study in Heart Failure,Cardiometabolic,PHASE3,Heart Failure,Dana Whitfield,900,63,2026-01-23,2027-07-23,0.94
+MRD-CVM-302,NCT07293260,Phase 3 study in Cardiovascular Disease,Cardiometabolic,PHASE3,Cardiovascular Disease,Priya Raman,406,51,2026-03-06,2027-08-06,0.57
+MRD-ONC-203,NCT06747585,Phase 2 study in Squamous Non-small-cell Lung Cancer,Oncology,PHASE2,Squamous Non-small-cell Lung Cancer,Marcus Oyelaran,235,26,2025-12-19,2027-04-02,0.73
+MRD-ONC-204,NCT04219254,"Phase 2 study in Solid Tumor, Adult",Oncology,PHASE2,"Solid Tumor, Adult",Elena Sorensen,197,8,2025-05-30,2027-06-11,1.14
+MRD-CVM-205,NCT04703842,Phase 2 study in Congestive Heart Failure,Cardiometabolic,PHASE2,Congestive Heart Failure,Tomás Herrera,80,8,2025-01-03,2027-02-05,0.45
+MRD-IMM-206,NCT07879885,Phase 2 study in Moderate-to-severe Plaque Psoriasis,Immunology,PHASE2,Moderate-to-severe Plaque Psoriasis,Grace Liu,390,37,2026-06-19,2027-12-17,0.7
+MRD-ONC-307,NCT07225270,Phase 3 study in Ovarian Cancer,Oncology,PHASE3,Ovarian Cancer,Dana Whitfield,544,31,2026-01-30,2027-12-24,0.89
+MRD-ONC-208,NCT07287150,Phase 2 study in Metastatic Castration-Resistant Prostate Cancer,Oncology,PHASE2,Metastatic Castration-Resistant Prostate Cancer,Priya Raman,100,8,2026-01-16,2027-12-03,0.63
+MRD-CVM-309,NCT06439277,Phase 3 study in Obesity,Cardiometabolic,PHASE3,Obesity,Marcus Oyelaran,300,17,2025-07-04,2027-06-18,0.85
+MRD-ONC-210,NCT07476287,Phase 2 study in Small Cell Lung Cancer,Oncology,PHASE2,Small Cell Lung Cancer,Elena Sorensen,80,8,2026-07-03,2027-10-01,0.84
+MRD-ONC-211,NCT05918445,Phase 2 study in Malignant Neoplasm,Oncology,PHASE2,Malignant Neoplasm,Tomás Herrera,380,38,2025-05-16,2027-06-04,0.46
+MRD-IMM-212,NCT07625293,Phase 2 study in Crohn Disease (CD),Immunology,PHASE2,Crohn Disease (CD),Grace Liu,80,8,2025-12-19,2028-02-04,0.44
+MRD-ONC-213,NCT06911333,"Phase 2 study in Solid Tumor, Adult",Oncology,PHASE2,"Solid Tumor, Adult",Dana Whitfield,80,8,2025-01-03,2027-01-15,0.47
+MRD-NEU-214,NCT07142291,Phase 2 study in Amyotrophic Lateral Sclerosis (ALS),Neuroscience,PHASE2,Amyotrophic Lateral Sclerosis (ALS),Priya Raman,105,8,2025-11-14,2027-02-05,1.11
+MRD-ONC-315,NCT05317819,Phase 3 study in Hepatocellular Carcinoma,Oncology,PHASE3,Hepatocellular Carcinoma,Marcus Oyelaran,300,20,2025-08-22,2027-05-07,0.85
+MRD-NEU-216,NCT06063850,Phase 2 study in Mesial Temporal Lobe Epilepsy,Neuroscience,PHASE2,Mesial Temporal Lobe Epilepsy,Elena Sorensen,80,10,2025-08-01,2027-03-19,0.48
+MRD-INF-217,NCT07288138,Phase 2 study in Metabolic Dysfunction-associated Steatohepatitis,Infectious Disease,PHASE2,Metabolic Dysfunction-associated Steatohepatitis,Tomás Herrera,160,12,2026-07-03,2028-05-19,0.67
+MRD-INF-318,NCT06573008,"Phase 3 study in Influenza, Human",Infectious Disease,PHASE3,"Influenza, Human",Grace Liu,328,17,2025-09-05,2027-10-15,0.86
+MRD-NEU-219,NCT07688213,"Phase 2 study in Dementia, Alzheimer's Type",Neuroscience,PHASE2,"Dementia, Alzheimer's Type",Dana Whitfield,160,10,2025-05-30,2027-01-08,0.97
+MRD-IMM-320,NCT07754786,Phase 3 study in Atopic Dermatitis,Immunology,PHASE3,Atopic Dermatitis,Priya Raman,520,46,2026-07-10,2027-12-17,0.8
+MRD-IMM-221,NCT07641517,"Phase 2 study in Osteoarthritis, Knee",Immunology,PHASE2,"Osteoarthritis, Knee",Marcus Oyelaran,150,12,2025-09-05,2027-04-02,0.78
+MRD-NEU-222,NCT07901179,Phase 2 study in Major Depressive Disorder (MDD),Neuroscience,PHASE2,Major Depressive Disorder (MDD),Elena Sorensen,180,18,2026-06-05,2027-07-16,0.97
+MRD-INF-323,NCT06715891,Phase 3 study in Acute Respiratory Viral Infection,Infectious Disease,PHASE3,Acute Respiratory Viral Infection,Tomás Herrera,374,69,2026-05-22,2027-08-13,0.47
+MRD-IMM-224,NCT06841042,Phase 2 study in System Lupus Erythematosus,Immunology,PHASE2,System Lupus Erythematosus,Grace Liu,168,8,2025-06-27,2027-05-21,1.05
